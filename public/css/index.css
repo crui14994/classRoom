@@ -1,0 +1,13 @@
+.navbar{
+    border-radius: 0px;
+}
+
+/* register */
+#alert>div{
+    display: none;
+    margin-top: 20px;
+}
+
+#formDiv{
+    float: none;
+}

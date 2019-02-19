@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>仿微博简易系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+</head>
+
+<body>
+    <!-- 导航条 -->
+    <% include header.ejs %>
+
+    <div class="container">
+        <div id="formDiv" class="col-md-8 center-block">
+            <form role="form">
+                <div class="form-group">
+                    <label for="userName">名称</label>
+                    <input type="text" name="userName" class="form-control" id="userName" placeholder="请输入名称，不能重复！">
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">密码</label>
+                    <input type="password" name="userPassword" class="form-control" id="userPassword" placeholder="请输入密码">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">请打勾
+                    </label>
+                </div>
+                <button type="button" id="regBtn" class="btn btn-default">提交</button>
+            </form>
+            <div  id="alert">
+                    <div id="danger"  class="alert alert-danger"></div>
+                    <div id="success" class="alert alert-success"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="./js/jquery-1.11.3.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            //提交表单
+            $("#regBtn").on("click", function () {
+                $.post("./doregist", {
+                    userName: $("#userName").val(),
+                    userPassword: $("#userPassword").val()
+                }, function (result) {
+                    if (result == "-3") {
+                        $("#danger").show().html("用户已存在！").siblings().hide();
+                    }else if(result == "1") {
+                        $("#success").show().html("注册成功！").siblings().hide();
+                        window.location = "/";
+                    }else{
+                        $("#danger").show().html("注册失败！").siblings().hide();
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

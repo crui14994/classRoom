@@ -1,0 +1,31 @@
+<!-- 导航条 -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./">班级说说</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">全部说说</a></li>
+                <li><a href="#">我的说说</a></li>
+            </ul>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+        <%
+            if(!login){
+        %>
+            <li><a href="./register"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+            <li><a href="#" data-target="#myModal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span>
+                    登录</a></li>
+            <%
+        }else{
+        %>
+            <li><a>欢迎您！
+                    <%= userName %></a></li>
+            <%
+        }
+        %>
+        </ul>
+    </div>
+</nav>
