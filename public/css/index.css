@@ -11,3 +11,8 @@
 #formDiv{
     float: none;
 }
+
+/* header */
+#loginDanger{
+    display: none;
+}

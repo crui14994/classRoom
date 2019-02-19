@@ -19,5 +19,6 @@ app.use(express.static("./public"));
 app.get("/", router.showIndex);
 app.get("/register", router.register);
 app.post("/doregist", router.doRegist);
+app.post("/dologin", router.dologin);
 
 app.listen(3000); 
