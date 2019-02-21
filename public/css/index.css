@@ -16,3 +16,18 @@
 #loginDanger{
     display: none;
 }
+.header-avatar a{
+    display: inline-block!important;
+}
+.header-avatar a:first-child{
+    padding: 0px 0 0 15px!important;
+}
+.header-avatar a img{
+    border-radius: 30px;
+}
+.header-avatar a:last-child{
+    padding-left: 5px!important;
+}
+.header-avatar img{
+    
+}
